@@ -29,7 +29,7 @@ from .utils import (
     get_encoding_from_headers, stream_untransfer, guess_filename, requote_uri,
     dict_from_string, stream_decode_response_unicode, get_netrc_auth)
 from .compat import (
-    urlparse, urlunparse, urljoin, urlsplit, urlencode, str, bytes,
+    urlparse, urlunparse, urljoin, urlsplit, urlencode, str, bytes, StringIO,
     SimpleCookie, is_py2)
 
 # Import chardet if it is available.
@@ -351,6 +351,8 @@ class Request(object):
             else:
                 fn = guess_filename(v) or k
                 fp = v
+            if isinstance(fp, bytes):
+                fp = StringIO(fp)
             fields.update({k: (fn, fp.read())})
 
         (body, content_type) = encode_multipart_formdata(fields)
