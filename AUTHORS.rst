@@ -95,3 +95,4 @@ Patches and Suggestions
 - Michael Kelly
 - Michael Newman <newmaniese@gmail.com>
 - Jonty Wareing <jonty@jonty.co.uk>
+- Justin Barber <barber.justin@gmail.com>
